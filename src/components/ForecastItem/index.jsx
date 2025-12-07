@@ -1,0 +1,1 @@
+import React from 'react';export default function ForecastItem({item}){ return(<div><p>{item.day}</p><p>{item.temp}°C</p></div>);}
