@@ -1,0 +1,61 @@
+/* Default (Light) Theme */
+:root {
+  --bg-color: #f4f7fb;
+  --primary-color: #4a90e2;
+  --secondary-color: #6ab7ff;
+  --text-color: #222222;
+  --card-bg: #ffffff;
+  --error-bg: #ffdddd;
+  --error-text: #b30000;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --bg-color: #1e1e2f;
+  --primary-color: #4a90e2;
+  --secondary-color: #357ac9;
+  --text-color: #f5f5f5;
+  --card-bg: #2c2c3c;
+  --error-bg: #ff4444;
+  --error-text: #ffffff;
+}
+
+/* Apply theme variables globally */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Card styles using theme variables */
+.card {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+/* Error banner */
+.error-banner {
+  background-color: var(--error-bg);
+  color: var(--error-text);
+  padding: 12px;
+  border-radius: 10px;
+  margin: 10px 0;
+  text-align: center;
+}
