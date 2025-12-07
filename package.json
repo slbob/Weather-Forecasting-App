@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "description": "A modern, responsive weather forecasting app built with React.",
+  "homepage": "https://slbob.github.io/weather-app",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -19,7 +22,8 @@
   },
   "devDependencies": {
     "eslint": "^8.48.0",
-    "eslint-plugin-react": "^7.33.2"
+    "eslint-plugin-react": "^7.33.2",
+    "gh-pages": "^5.0.0"
   },
   "eslintConfig": {
     "extends": [
