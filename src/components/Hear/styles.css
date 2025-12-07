@@ -1,0 +1,13 @@
+.header {
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(135deg, #6ab7ff, #4a90e2);
+  color: white;
+  text-align: center;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
