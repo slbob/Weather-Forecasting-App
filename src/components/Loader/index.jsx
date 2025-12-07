@@ -1,1 +1,6 @@
-import React from 'react';export default function Loader(){return <div>Loading...</div>}
+import React from "react";
+import "./styles.css";
+
+export default function Loader() {
+  return <div className="loader"></div>;
+}
