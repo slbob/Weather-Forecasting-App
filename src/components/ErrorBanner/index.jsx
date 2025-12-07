@@ -1,1 +1,7 @@
-import React from 'react';export default function ForecastItem({item}){ return(<div><p>{item.day}</p><p>{item.temp}°C</p></div>);}
+import React from "react";
+import "./styles.css";
+
+export default function ErrorBanner({ message }) {
+  if (!message) return null;
+  return <div className="error-banner">{message}</div>;
+}
