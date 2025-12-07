@@ -1,0 +1,1 @@
+import React from 'react';import ForecastItem from '../ForecastItem';export default function ForecastList({forecast}){if(!forecast)return null;return(<div>{forecast.map((i,k)=><ForecastItem key={k} item={i}/>)}</div>);}
