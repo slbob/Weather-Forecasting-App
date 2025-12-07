@@ -1,9 +1,47 @@
-import {useState} from 'react'
-import {fetchWeather,fetchForecast} from '../utils/api'
-export default function useWeather(){const[loading,setLoading]=useState(false)
-  const[error,setError]=useState('');const[weather,setWeather]=useState(null)
-  const[forecast,setForecast]=useState([]);const searchCity=async(city)=>{try{setLoading(True);setError('')
-  const w=await fetchWeather(city)
-  const f=await fetchForecast(city);setWeather(w);setForecast(f);}catch(e){setError('Failed to fetch weather');}
-  finally{setLoading(False);}}
-return {loading,error,weather,forecast,searchCity};}
+import { useState } from "react";
+import { fetchWeather, fetchForecast } from "../utils/api";
+
+/**
+ * Custom hook to manage weather state and API calls
+ */
+export default function useWeather() {
+  const [weather, setWeather] = useState(null);      // Current weather
+  const [forecast, setForecast] = useState([]);      // 5-day forecast
+  const [loading, setLoading] = useState(false);     // Loading state
+  const [error, setError] = useState("");            // Error message
+
+  /**
+   * Fetch weather and forecast for a given city
+   * @param {string} city - City name
+   */
+  const searchCity = async (city) => {
+    if (!city) {
+      setError("Please enter a city name.");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+    try {
+      const currentWeather = await fetchWeather(city);
+      const forecastData = await fetchForecast(city);
+
+      setWeather(currentWeather);
+      setForecast(forecastData);
+    } catch (err) {
+      setError("Failed to fetch weather data. Please try again.");
+      setWeather(null);
+      setForecast([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return {
+    weather,
+    forecast,
+    loading,
+    error,
+    searchCity
+  };
+}
